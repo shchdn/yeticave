@@ -41,7 +41,7 @@
                         <span class="lot__cost"><?=get_price($item['price']) ?></span>
                     </div>
                     <div class="lot__timer timer">
-
+                        <?=get_time_to_midnight() ?>
                     </div>
                 </div>
             </div>
