@@ -39,6 +39,10 @@ $products = [
     'price' => 5400,
     'image_path' => 'img/lot-6.jpg'],
 ];
+for ($i = 0; $i < count($products); $i++){
+    $products[$i]['id'] = $i + 1;
+}
+
 // ставки пользователей, которыми надо заполнить таблицу
 $bets = [
     ['name' => 'Иван', 'price' => 11500, 'ts' => strtotime('-' . rand(1, 50) .' minute')],

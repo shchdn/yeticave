@@ -1,4 +1,4 @@
-<?php 
+<?php
 function get_price($value){
     return number_format(ceil($value), 0, '.', ' ') . '<b class="rub">р</b>';
 };
@@ -25,4 +25,3 @@ function get_time_to_midnight(){
     $minutes = floor(($sec_to_midnight % $sec_in_hour) / $sec_in_minute);
     return $hours . ':' . $minutes;
 }
-?>
