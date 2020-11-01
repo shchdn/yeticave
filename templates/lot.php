@@ -25,11 +25,15 @@
         <h2><?=$lot['name'] ?></h2>
         <div class="lot-item__content">
             <div class="lot-item__left">
+                <?php if(isset($lot['image_path'])):?>
                 <div class="lot-item__image">
                     <img src=<?=$lot['image_path'] ?> width="730" height="548" alt="Сноуборд">
                 </div>
+                <?php endif;?>
                 <p class="lot-item__category">Категория: <span><?=$lot['category'] ?></span></p>
-                <p class="lot-item__description">Легкий маневренный сноуборд, готовый дать жару в любом парке, растопив
+                <p class="lot-item__description">
+                    <?php
+                    $default_description = 'Легкий маневренный сноуборд, готовый дать жару в любом парке, растопив
                     снег
                     мощным щелчкоми четкими дугами. Стекловолокно Bi-Ax, уложенное в двух направлениях, наделяет этот
                     снаряд
@@ -38,17 +42,20 @@
                     позволит уверенно держать высокие скорости. А если к концу катального дня сил совсем не останется,
                     просто
                     посмотрите на Вашу доску и улыбнитесь, крутая графика от Шона Кливера еще никого не оставляла
-                    равнодушным.</p>
+                    равнодушным.';
+                    print isset($lot['message']) ? $lot['message'] : $default_description;
+                    ?>
+                </p>
             </div>
             <div class="lot-item__right">
                 <div class="lot-item__state">
                     <div class="lot-item__timer timer">
-                        10:54:12
+                        <?=get_time_to_midnight() ?>
                     </div>
                     <div class="lot-item__cost-state">
                         <div class="lot-item__rate">
                             <span class="lot-item__amount">Текущая цена</span>
-                            <span class="lot-item__cost"><?=$lot['price'] ?></span>
+                            <span class="lot-item__cost"><?=get_price($lot['price']) ?></span>
                         </div>
                         <div class="lot-item__min-cost">
                             Мин. ставка <span>12 000 р</span>
